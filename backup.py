@@ -1,4 +1,4 @@
-# -*- coding: GBK -*-
+# -*- coding: ut-8 -*-
 import os
 import win32file
 import win32con
@@ -63,7 +63,7 @@ class Achieve3:
         filename = full_filename.split(os.sep)[1]
         if filename in self.Conf.target and ACTIONS.get(action, "Unknown") == 'Updated':
           now = time.strftime("%Y%m%d%H%M%S", time.localtime())
-          print('监听到目标文件修改:', filename, '@', now)
+          print(f'File changed: {fileName}, {now}')
           backup_path = "." + os.sep + "backups"
           if not os.path.exists(backup_path):
             os.mkdir(backup_path)

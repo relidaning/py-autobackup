@@ -12,19 +12,19 @@ if __name__ == '__main__':
                 continue
             matchObj=re.match('\\[(\D*)\\]', line.strip(), re.M|re.I)
             if matchObj:
-                # print('k:', matchObj.group(1))
+                print('k:', matchObj.group(1))
                 k = matchObj.group(1)
                 d[k]=''
             else:
-                # print('v:', line.strip())
+                print('v:', line.strip())
                 v = line.strip()
                 d[k]=v if d[k]=='' else d[k]+', '+v
     except FileNotFoundError:
         d = {'target': '', 'achieve': ''}
 
-    # print('conf:', d)
+    print('conf:', d)
     aconf = Conf(target=d['target'])
-    # print(aconf)
+    print(aconf)
 
     achieve = Achieve3(aconf)
     achieve.watch()
